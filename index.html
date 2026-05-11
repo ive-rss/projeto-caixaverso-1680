@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard de Clientes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Dashboard de Clientes</h1>
+    <div class="operador">
+      <span>Operador(a) atual</span>
+      <strong id="operadorAtual">Nao identificado</strong>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="painel cadastro">
+      <h2>Cadastrar cliente</h2>
+      <form id="formCliente" novalidate>
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Silva" required>
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="ana@email.com" required>
+        <p id="erroEmail" class="mensagem-erro"></p>
+
+        <label for="plano">Tipo de plano</label>
+        <select id="plano" name="plano" required>
+          <option value="">Selecione</option>
+          <option value="Gold">Gold</option>
+          <option value="Silver">Silver</option>
+          <option value="Bronze">Bronze</option>
+        </select>
+
+        <button type="submit">Salvar</button>
+        <p id="mensagemStatus" class="mensagem-status"></p>
+      </form>
+    </section>
+
+    <section class="painel listagem">
+      <div class="cabecalho-lista">
+        <h2>Clientes cadastrados</h2>
+
+        <label class="busca" for="buscaCliente">
+          <span>Buscar</span>
+          <input id="buscaCliente" type="search" placeholder="Digite nome, e-mail ou plano">
+        </label>
+      </div>
+
+      <div id="listaClientes" class="lista-clientes"></div>
+      <p id="listaVazia" class="lista-vazia">Nenhum cliente cadastrado ainda.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
