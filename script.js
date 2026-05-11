@@ -75,7 +75,7 @@ function criarCardCliente(cliente) {
   botaoRemover.type = "button";
   botaoRemover.textContent = "Remover";
 
-  botaoRemover.addEventListener("click", function () {
+  botaoRemover.addEventListener("click", () => {
     removerCliente(cliente.id);
   });
 
@@ -88,19 +88,20 @@ function criarCardCliente(cliente) {
 }
 
 function buscaCliente(cliente, termoBusca) {
-  const conteudo = `${cliente.nome} ${cliente.email} ${cliente.plano}`.toLowerCase();
+  const conteudo =
+    `${cliente.nome} ${cliente.email} ${cliente.plano}`.toLowerCase();
   return conteudo.includes(termoBusca);
 }
 
 function renderizarClientes() {
   const termoBusca = campoBusca.value.trim().toLowerCase();
-  const clientesFiltrados = clientes.filter(function (cliente) {
+  const clientesFiltrados = clientes.filter((cliente) => {
     return buscaCliente(cliente, termoBusca);
   });
 
   listaClientes.innerHTML = "";
 
-  clientesFiltrados.forEach(function (cliente) {
+  clientesFiltrados.forEach((cliente) => {
     const card = criarCardCliente(cliente);
     listaClientes.appendChild(card);
   });
@@ -115,7 +116,7 @@ function renderizarClientes() {
 }
 
 function removerCliente(id) {
-  clientes = clientes.filter(function (cliente) {
+  clientes = clientes.filter((cliente) => {
     return cliente.id !== id;
   });
 
@@ -123,7 +124,7 @@ function removerCliente(id) {
   renderizarClientes();
 }
 
-formCliente.addEventListener("submit", function (evento) {
+formCliente.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
   const nome = campoNome.value.trim();
@@ -139,7 +140,7 @@ formCliente.addEventListener("submit", function (evento) {
     id: Date.now(),
     nome: nome,
     email: email,
-    plano: plano
+    plano: plano,
   };
 
   clientes.push(novoCliente);
@@ -152,7 +153,7 @@ formCliente.addEventListener("submit", function (evento) {
 });
 
 campoEmail.addEventListener("blur", validarEmail);
-campoEmail.addEventListener("input", function () {
+campoEmail.addEventListener("input", () => {
   mensagemStatus.textContent = "";
 });
 
