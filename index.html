@@ -21,23 +21,55 @@
     <section class="painel cadastro">
       <h2>Cadastrar cliente</h2>
       <form id="formCliente" novalidate>
-        <label for="nome">Nome</label>
-        <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Silva" required>
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input id="nome" name="nome" type="text" placeholder="Ex.: Ana Silva" required>
+        </div>
 
-        <label for="email">E-mail</label>
-        <input id="email" name="email" type="email" placeholder="ana@email.com" required>
-        <p id="erroEmail" class="mensagem-erro"></p>
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" placeholder="ana@email.com" required>
+          <p id="erroEmail" class="mensagem-erro"></p>
+        </div>
 
-        <label for="plano">Tipo de plano</label>
-        <select id="plano" name="plano" required>
-          <option value="">Selecione</option>
-          <option value="Gold">Gold</option>
-          <option value="Silver">Silver</option>
-          <option value="Bronze">Bronze</option>
-        </select>
+        <div class="campo">
+          <label for="plano">Tipo de plano</label>
+          <select id="plano" name="plano" required>
+            <option value="">Selecione</option>
+            <option value="Gold">Gold</option>
+            <option value="Silver">Silver</option>
+            <option value="Bronze">Bronze</option>
+          </select>
+        </div>
 
-        <button type="submit">Salvar</button>
-        <p id="mensagemStatus" class="mensagem-status"></p>
+        <div class="campo">
+          <label for="cep">CEP</label>
+          <input id="cep" name="cep" type="text" placeholder="Ex.: 01001-000" maxlength="9" required>
+          <p id="erroCep" class="mensagem-erro"></p>
+        </div>
+
+        <div class="campo campo-inteiro">
+          <label for="logradouro">Logradouro</label>
+          <input id="logradouro" name="logradouro" type="text" readonly>
+        </div>
+
+        <div class="campo">
+          <label for="bairro">Bairro</label>
+          <input id="bairro" name="bairro" type="text" readonly>
+        </div>
+
+        <div class="campo">
+          <label for="cidade">Cidade</label>
+          <input id="cidade" name="cidade" type="text" readonly>
+        </div>
+
+        <div class="campo campo-inteiro">
+          <label for="uf">Estado / UF</label>
+          <input id="uf" name="uf" type="text" readonly>
+        </div>
+
+        <button id="botaoSalvar" class="campo-inteiro" type="submit">Salvar</button>
+        <p id="mensagemStatus" class="mensagem-status campo-inteiro"></p>
       </form>
     </section>
 
@@ -47,7 +79,7 @@
 
         <label class="busca" for="buscaCliente">
           <span>Buscar</span>
-          <input id="buscaCliente" type="search" placeholder="Digite nome, e-mail ou plano">
+          <input id="buscaCliente" type="search" placeholder="Digite nome, e-mail, plano ou endereço">
         </label>
       </div>
 
